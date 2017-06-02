@@ -1,0 +1,8 @@
+int16 SHOW=1
+int16 HIDE=0
+int16 RESULT_OK=1
+int16 RESULT_FAIL=0
+int16 show_flag
+---
+string response
+int16 result

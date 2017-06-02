@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<launch>
+  <node name="usb_cam" pkg="usb_cam" type="usb_cam_node" output="screen" >
+    <param name="video_device" value="/dev/video0" />
+    <param name="image_width" value="640" />
+    <param name="image_height" value="480" />
+    <param name="pixel_format" value="yuyv" />
+    <param name="camera_frame_id" value="usb_cam" />
+    <param name="io_method" value="mmap"/>
+  </node>
+    <!-- facial recognizer start -->
+    <node name="facial_expression" pkg="facial_expression" type="ros_test"></node>
+
+    <!-- facial image re-pub start -->
+    <node name="compressed_facial_repub" pkg="image_repub" type="compressed_image_pub.py"></node>
+
+    <!-- Xtion & PCL based human tracker's face detector re-pub start -->
+    <node name="compressed_face_repub" pkg="image_repub" type="compressed_face_image_pub.py"></node>
+</launch>
